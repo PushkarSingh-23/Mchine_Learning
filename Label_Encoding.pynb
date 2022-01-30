@@ -1,0 +1,69 @@
+# %% [markdown]
+# Label Encoding :
+# @ Converting the labels into numeric form
+
+# %%
+#importing the Dependencies 
+import pandas as pd 
+from sklearn.preprocessing import LabelEncoder
+
+# %% [markdown]
+# Label Encoding of Breast Cancer Dataset
+
+# %%
+#loading the data from csv file to pandas dataframe 
+cancer_data = pd.read_csv('F:\Machine_learning\data.csv')
+
+# %% [markdown]
+# Loading First Five rows of dataset
+
+# %%
+cancer_data.head()
+
+# %% [markdown]
+# Loading Shape of Dataset
+
+# %%
+cancer_data.shape
+
+# %% [markdown]
+# Loading last five rows of dataset
+
+# %%
+cancer_data.tail()
+
+# %% [markdown]
+# Finding the count of different labels
+# 
+
+# %%
+cancer_data['diagnosis'].value_counts()
+
+# %% [markdown]
+# converting B and M into numeric values
+
+# %%
+#load the label Encoder function
+LabelEncoder = LabelEncoder()
+
+# %%
+label = LabelEncoder.fit_transform(cancer_data['diagnosis'])
+
+# %%
+#appending the labels to the dataframe
+cancer_data['target'] = label
+
+# %%
+cancer_data.head()
+
+# %% [markdown]
+# 0 ---> Benign :
+# 1 ---> Malignant
+
+# %%
+cancer_data['target'].value_counts()
+
+# %%
+
+
+
